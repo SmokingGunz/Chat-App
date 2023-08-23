@@ -8,5 +8,5 @@ target/
 Eric-Assignment-14.iml
 bin/
 .vscode/
-.DS_Store/
+.DS_Store
 .idea/
