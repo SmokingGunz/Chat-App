@@ -1,0 +1,12 @@
+/target/
+.idea/
+.idea/misc.xml
+target/
+.classpath
+.project
+.settings
+Eric-Assignment-14.iml
+bin/
+.vscode/
+.DS_Store/
+.idea/
