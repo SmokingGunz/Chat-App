@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Welcome to Chat</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Assuming you have a styles.css file for styling -->
+
+    <script>
+        window.onload = function () {
+            let user = sessionStorage.getItem('username');
+
+            if (!user) {
+                let username = prompt('Please enter your username:');
+
+                if (username && username.trim().length > 0) {
+                    // Send an AJAX request to save the username on the server
+                    fetch('/setUsername', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'username=' + encodeURIComponent(username)
+                    }).then(response => {
+                        if (response.ok) {
+                            sessionStorage.setItem('username', username);
+                            location.reload();
+                        } else {
+                            console.error('Failed to set username on the server.');
+                        }
+                    });
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div th:if="${name == null}">
+            <h2>Welcome to Chat [[${name}]]!</h2>
+            <p>Please select a channel to join:</p>
+            <ul>
+                <!-- Loop through the list of channels and display each one -->
+                <li th:each="channel : ${channels}">
+                    <a th:href="@{/channels/{channelId}(channelId=${channel.id})}" th:text="${channel.name}"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
