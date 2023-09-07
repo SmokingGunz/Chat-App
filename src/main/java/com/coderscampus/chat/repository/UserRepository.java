@@ -1,8 +1,11 @@
 package com.coderscampus.chat.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.coderscampus.chat.domain.User;
+
 @Repository
-public class UserRepository {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
