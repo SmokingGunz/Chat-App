@@ -13,7 +13,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String username;
 
 	public Long getId() {
 		return id;
@@ -23,17 +23,17 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String name) {
+		this.username = name;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "User [id=" + id + ", name=" + username + "]";
 	}
 
 }

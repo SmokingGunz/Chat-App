@@ -7,5 +7,6 @@ import com.coderscampus.chat.domain.Channel;
 
 @Repository
 public interface ChannelRepository extends JpaRepository<Channel, Long> {
+	
 
 }

@@ -7,5 +7,6 @@ import com.coderscampus.chat.domain.Message;
 
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
+	
 
 }
