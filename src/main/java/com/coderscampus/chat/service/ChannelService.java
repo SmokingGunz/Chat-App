@@ -2,6 +2,7 @@ package com.coderscampus.chat.service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,16 @@ public class ChannelService {
             ));
         }
         return findAllChannels();
+	}
+
+	public String findChannelNameById(Long channelId) {
+
+		Optional<Channel> channel = channelRepository.findById(channelId);
+		if (channel.isPresent()) {
+			return channel.get().getName();
+		}
+
+		return null;
 	}
 
 }
