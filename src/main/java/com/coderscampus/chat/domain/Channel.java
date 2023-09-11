@@ -1,5 +1,6 @@
 package com.coderscampus.chat.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -24,6 +25,16 @@ public class Channel {
 	@ManyToMany
 	@JoinTable(name = "channel_user", joinColumns = @JoinColumn(name = "channel_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private List<User> users;
+
+	public Channel() {
+
+	}
+
+	// channel constructor that takes in a name and id
+	public Channel(Long id, String name) {
+		this.name = name;
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;
