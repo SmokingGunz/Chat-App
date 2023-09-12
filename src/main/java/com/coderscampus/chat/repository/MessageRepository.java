@@ -10,7 +10,7 @@ import com.coderscampus.chat.domain.Message;
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
 	
-	List<Message> findByChannelId(Long channelId);
+	List<Message> findByChannel_Id(Long channelId);
 	
 
 }
