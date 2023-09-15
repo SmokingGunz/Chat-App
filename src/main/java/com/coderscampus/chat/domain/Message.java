@@ -24,9 +24,8 @@ public class Message {
 
 	private String content;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
-	@JsonIgnore 
 	private User user;
 
 	private LocalDateTime timestamp;

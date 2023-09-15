@@ -1,6 +1,7 @@
 package com.coderscampus.chat.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,19 @@ public class MessageService {
 		message.setChannel(channel);
 
 		return messageRepository.save(message);
+	}
+
+	public List<MessageDTO> convertToDTOs(List<Message> messages) {
+		return messages.stream().map(this::convertToDTO).collect(Collectors.toList());
+	}
+
+	private MessageDTO convertToDTO(Message message) {
+		MessageDTO dto = new MessageDTO();
+		dto.setContent(message.getContent());
+		if (message.getUser() != null) {
+			dto.setSender(message.getUser().getUsername());
+		}
+		return dto;
 	}
 
 }

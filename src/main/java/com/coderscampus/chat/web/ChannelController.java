@@ -48,10 +48,12 @@ public class ChannelController {
 
 	@GetMapping("/channels/{channelId}/latestMessages")
 	@ResponseBody
-	public List<Message> getLatestMessages(@PathVariable Long channelId) {
+	public List<MessageDTO> getLatestMessages(@PathVariable Long channelId) {
 	    List<Message> messages = messageService.findMessagesByChannelId(channelId);
-	    System.out.println("Sending Messages: " + messages.size());
-	    return messages;
+	    List<MessageDTO> messageDTOs = messageService.convertToDTOs(messages);
+	    System.out.println("Sending Messages: " + messageDTOs.size());
+	    return messageDTOs;
 	}
+
 
 }

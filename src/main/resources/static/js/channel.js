@@ -33,7 +33,6 @@ function sendMessage() {
     });
 }
 
-
 function refreshMessageArea() {
     // Use 'fetch' to retrieve the latest messages from the server
     fetch(`/channels/${channelId}/latestMessages?_=${new Date().getTime()}`)
@@ -45,10 +44,10 @@ function refreshMessageArea() {
             const messageArea = document.getElementById('messageArea');
             messageArea.innerHTML = '';
 
-            messages.forEach(message => {
+            messages.map(message => {
                 const messageElement = document.createElement('div');
                 const senderSpan = document.createElement('span');
-                senderSpan.textContent = message.user.username + ': ';
+                senderSpan.textContent = message.sender + ': ';  // Change made here
                 const contentSpan = document.createElement('span');
                 contentSpan.textContent = message.content;
 
