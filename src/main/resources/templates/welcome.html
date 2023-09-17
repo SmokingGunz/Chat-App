@@ -10,7 +10,7 @@
             let user = sessionStorage.getItem('username');
 
             if (!user) {
-                let username = prompt('Please enter your username:');
+                let username = prompt('What is your name?');
 
                 if (username && username.trim().length > 0) {
                     // Send an AJAX request to save the username on the server
@@ -38,7 +38,7 @@
 <body>
     <div class="container">
         <div>
-            <h2>Welcome to Chat [[${name}]]!</h2>
+            <h2>Welcome To The Chat [[${name}]]!</h2>
             <p>Please select a channel to join:</p>
             <ul>
                 <!-- Loop through the list of channels and display each one -->

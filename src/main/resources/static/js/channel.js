@@ -66,4 +66,4 @@ function refreshMessageArea() {
 refreshMessageArea();
 
 // Polling: Call refreshMessageArea at regular intervals to check for new messages
-setInterval(refreshMessageArea, 5000); // Refresh every 5 seconds (adjust as needed)
+setInterval(refreshMessageArea, 500); // Refresh every 5 seconds (adjust as needed)
